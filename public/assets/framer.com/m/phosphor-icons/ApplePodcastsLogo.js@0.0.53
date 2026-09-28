@@ -1,0 +1,8 @@
+/*
+ * ApplePodcastsLogo (phosphor-icons/ApplePodcastsLogo@0.0.53)
+ *
+ * Learn More: https://www.framer.com/asset-urls
+ */
+
+export * from "https://framerusercontent.com/modules/s7xzep5R0vtSLflntPwl/zzZn13q3ZppSN7v5jGV9/ApplePodcastsLogo.js"
+export { default } from "https://framerusercontent.com/modules/s7xzep5R0vtSLflntPwl/zzZn13q3ZppSN7v5jGV9/ApplePodcastsLogo.js"

@@ -1,0 +1,8 @@
+/*
+ * HandTap (phosphor-icons/HandTap@0.0.53)
+ *
+ * Learn More: https://www.framer.com/asset-urls
+ */
+
+export * from "https://framerusercontent.com/modules/3dVnoh4hZk0hAzcSdp3U/2qKNvnAQLWH4bhA0iwUP/HandTap.js"
+export { default } from "https://framerusercontent.com/modules/3dVnoh4hZk0hAzcSdp3U/2qKNvnAQLWH4bhA0iwUP/HandTap.js"
