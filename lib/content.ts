@@ -206,3 +206,33 @@ export const proyectos = {
     },
   ],
 }
+
+// ------------------------------------------------------------ Contacto
+
+export const contacto = {
+  hero: {
+    tag: "CONTACTO",
+    title: "Escribinos tu mensaje",
+    text: "¿Tenes dudas sobre tu proyecto? Envianos un mensaje explicándonos como podemos ayudarte",
+  },
+  form: {
+    name: "Nombre",
+    email: "Email",
+    message: "Mensaje",
+    submit: "Enviar mensaje",
+    sending: "Enviando…",
+    success: "¡Gracias! Te respondemos a la brevedad.",
+    error: "No se pudo enviar. Probá de nuevo o escribinos por WhatsApp.",
+  },
+}
+
+// -------------------------------------------------------- Sobre Nosotros
+
+export const sobreNosotros = {
+  hero: {
+    tag: "CONOCENOS",
+    title: "Sobre Nosotros",
+    text: "TechoMax Argentina es el contratista de impermeabilización para techos más importante de Argentina, con operaciones tanto en Capital y GBA así como en el interior del país. Nuestro compromiso inquebrantable con la calidad, experiencia y profesionalismo es lo que nos hace el líder del sector. La instalación, la reparación, la respuesta ante daños en casos de emergencia, así como las opciones de sustentabilidad que usted o su empresa necesiten. Le ofrecemos la capacidad de respuesta de un contratista de techos de su zona respaldada por los recursos financieros, el tamaño y la estabilidad que necesita de una solución para techos comerciales de gran envergadura.",
+  },
+  image: { src: "/images/sobre-nosotros.jpg", alt: "Edificio corporativo con fachada vidriada" },
+}

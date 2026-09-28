@@ -5,9 +5,15 @@ import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 import { nav } from "@/lib/content"
 
+/**
+ * "light": links grises sobre fondo claro (home)
+ * "dark":  links blancos sobre el degradé violeta (servicios, proyectos)
+ * "solid": fondo blanco translúcido y links azul oscuro (contacto, sobre nosotros)
+ */
+export type HeaderTone = "light" | "dark" | "solid"
+
 type Props = {
-  /** "light": links grises sobre fondo claro (home) · "dark": links blancos sobre el degradé violeta */
-  tone?: "light" | "dark"
+  tone?: HeaderTone
 }
 
 export default function Header({ tone = "light" }: Props) {

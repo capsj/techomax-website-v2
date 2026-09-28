@@ -19,6 +19,9 @@ app/
   page.tsx              Home  (/)
   servicios/page.tsx    /servicios
   proyectos/page.tsx    /proyectos
+  contacto/page.tsx     /contacto (formulario)
+  sobrenosotros/page.tsx /sobrenosotros
+  api/contact/route.ts  envío del formulario por email (Resend)
   fonts/                Poppins, Be Vietnam Pro e Inter (self-hosted)
 components/
   Header.tsx            nav fija con blur al scrollear + menú mobile
@@ -31,6 +34,7 @@ components/
   ScrollTop.tsx         botón "volver arriba"
   SiteShell.tsx         header + CTA + footer comunes
   Tag.tsx               pill con texto en degradé
+  ContactForm.tsx       formulario de contacto
 lib/
   content.ts            ← TEXTOS, LINKS E IMÁGENES DE TODO EL SITIO
 public/
@@ -52,10 +56,22 @@ Igual que en Framer: desktop ≥ 1200px · tablet 810–1199px · mobile < 810px
 
 Heredados del sitio de Framer, marcados con `TODO` en el código:
 
-- `/contacto` y `/sobrenosotros` están en el menú pero todavía no existen (en Framer tampoco).
 - Texto de plantilla en inglés en el hero de Servicios y en "Mantenimiento Programado".
 - "Términos de Servicio" y "Políticas de Privacidad" no tienen página.
 - Definí `NEXT_PUBLIC_SITE_URL` (ej. `https://techomax.com.ar`) para que la imagen OG use URL absoluta.
+
+## Formulario de contacto
+
+El formulario de `/contacto` manda un POST a `/api/contact`, que envía el email con [Resend](https://resend.com).
+Configurá en Vercel:
+
+| Variable | Valor |
+| --- | --- |
+| `RESEND_API_KEY` | API key de Resend |
+| `CONTACT_TO` | destinatario (default `techomaxargentina@gmail.com`) |
+| `CONTACT_FROM` | remitente con dominio verificado en Resend (ej. `TechoMax <web@techomax.com.ar>`) |
+
+Sin `RESEND_API_KEY`, el formulario abre el cliente de correo del visitante con el mensaje ya armado.
 
 ## Deploy
 
