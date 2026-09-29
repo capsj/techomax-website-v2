@@ -1,8 +1,0 @@
-/*
- * Bandaids (phosphor-icons/Bandaids@0.0.53)
- *
- * Learn More: https://www.framer.com/asset-urls
- */
-
-export * from "https://framerusercontent.com/modules/JdnjtJyKbjBVER82P5Jc/fifyCChubbPSssEKdxdr/Bandaids.js"
-export { default } from "https://framerusercontent.com/modules/JdnjtJyKbjBVER82P5Jc/fifyCChubbPSssEKdxdr/Bandaids.js"

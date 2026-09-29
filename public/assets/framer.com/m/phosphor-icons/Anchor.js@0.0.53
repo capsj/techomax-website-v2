@@ -1,8 +1,0 @@
-/*
- * Anchor (phosphor-icons/Anchor@0.0.53)
- *
- * Learn More: https://www.framer.com/asset-urls
- */
-
-export * from "https://framerusercontent.com/modules/2hVblngBLVG8urbdcVSm/lnXtuiE0Jl7GdM4lxXhL/Anchor.js"
-export { default } from "https://framerusercontent.com/modules/2hVblngBLVG8urbdcVSm/lnXtuiE0Jl7GdM4lxXhL/Anchor.js"

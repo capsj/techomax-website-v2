@@ -1,49 +1,78 @@
-# quick-operator-625411.framer.app
+# TechoMax — sitio web
 
-An exact copy of the published site, in a Next.js project.
+Sitio de TechoMax reconstruido en **Next.js 15 + React 19** a partir del diseño publicado en Framer.
+Es código fuente editable: componentes React, un solo archivo de estilos y todo el contenido
+centralizado en un archivo.
 
 ```bash
 npm install
-npm run dev
+npm run dev     # http://localhost:3000
+npm run build   # build de producción
 ```
 
-## What this is
+## Estructura
 
-Every page is a file under `public/`, copied from the published site and served
-byte for byte by a rewrite in `next.config.mjs`. It renders exactly as Framer
-published it, including the parts a rebuild cannot reach - a WebGL canvas, a
-component driven frame by frame - because nothing here was interpreted.
+```
+app/
+  layout.tsx            fuentes, metadata global, <html>
+  globals.css           tokens de diseño + todos los estilos (desktop / tablet / mobile)
+  page.tsx              Home  (/)
+  servicios/page.tsx    /servicios
+  proyectos/page.tsx    /proyectos
+  contacto/page.tsx     /contacto (formulario)
+  sobrenosotros/page.tsx /sobrenosotros
+  api/contact/route.ts  envío del formulario por email (Resend)
+  fonts/                Poppins, Be Vietnam Pro e Inter (self-hosted)
+components/
+  Header.tsx            nav fija con blur al scrollear + menú mobile
+  Footer.tsx
+  CtaBanner.tsx         banner "Pedí tu cotización ahora"
+  ServiceRow.tsx        bloque texto + imagen (se usa en Home y Servicios)
+  Ticker.tsx            marquesina infinita (carrusel del hero y logos)
+  Blobs.tsx             manchas de color desenfocadas de los heros
+  Reveal.tsx            animación de aparición al hacer scroll
+  ScrollTop.tsx         botón "volver arriba"
+  SiteShell.tsx         header + CTA + footer comunes
+  Tag.tsx               pill con texto en degradé
+  ContactForm.tsx       formulario de contacto
+lib/
+  content.ts            ← TEXTOS, LINKS E IMÁGENES DE TODO EL SITIO
+public/
+  images/               imágenes optimizadas, con nombres descriptivos
+```
 
-3 routes:
+## Cómo editar
 
-- `/`
-- `/servicios`
-- `/proyectos`
+- **Textos, links, datos de contacto, métricas, testimonios:** `lib/content.ts`.
+- **Colores, tipografías, espaciados:** variables en `:root` al principio de `app/globals.css`.
+- **Imágenes:** reemplazá el archivo en `public/images/` (mismo nombre) o cambiá la ruta en `content.ts`.
+- **Nueva página:** creá `app/<ruta>/page.tsx` y envolvé el contenido en `<SiteShell>`.
 
-## What this is not
+## Breakpoints
 
-Source you can edit. The markup is Framer's, minified, alongside its runtime -
-you can host it, put your domain on it and add pages of your own around it, but
-changing the design means changing it in Framer and exporting again.
+Igual que en Framer: desktop ≥ 1200px · tablet 810–1199px · mobile < 810px.
 
-## Making it editable anyway
+## Pendientes de contenido
 
-Two ways. The quick one: export the plugin's React / Next.js tier instead. It
-rebuilds the pages as components with their own stylesheet - readable at once,
-and not pixel-identical.
+Heredados del sitio de Framer, marcados con `TODO` en el código:
 
-The thorough one: convert this copy by hand. Nothing here is fetched from
-Framer, so the whole site is already in this folder and the work can be done
-offline, at any number of pages, keeping the pixels.
+- Texto de plantilla en inglés en el hero de Servicios y en "Mantenimiento Programado".
+- "Términos de Servicio" y "Políticas de Privacidad" no tienen página.
+- Definí `NEXT_PUBLIC_SITE_URL` (ej. `https://techomax.com.ar`) para que la imagen OG use URL absoluta.
 
-`.claude/skills/framer-export-to-react/SKILL.md` is that second method written
-down: what to keep, what to rebuild, and the question to answer before either.
-That folder is hidden - `ls -a` in a terminal, Shift-Command-. in Finder.
-Open this folder in a coding agent that reads `.claude/skills` - Claude Code
-does - and ask it to make the site editable; it will find the skill on its own.
-Or read it yourself. It is prose, not a script.
+## Formulario de contacto
 
-## Adding your own pages
+El formulario de `/contacto` manda un POST a `/api/contact`, que envía el email con [Resend](https://resend.com).
+Configurá en Vercel:
 
-Anything you add under `app/` works normally, as long as its route is not one
-of the rewrites above - those are answered by the copy before Next sees them.
+| Variable | Valor |
+| --- | --- |
+| `RESEND_API_KEY` | API key de Resend |
+| `CONTACT_TO` | destinatario (default `techomaxargentina@gmail.com`) |
+| `CONTACT_FROM` | remitente con dominio verificado en Resend (ej. `TechoMax <web@techomax.com.ar>`) |
+
+Sin `RESEND_API_KEY`, el formulario abre el cliente de correo del visitante con el mensaje ya armado.
+
+## Deploy
+
+Listo para Vercel: importá el repo, framework Next.js, sin configuración extra.
